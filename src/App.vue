@@ -1,20 +1,29 @@
 <template>
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Hello Vue 3 + TypeScript + Vite"/>
+    <div class="main">
+        <el-container>
+            <el-aside width="260px">
+                <div class="border-r-2">
+                    left
+                </div>
+                <!-- components-list -->
+            </el-aside>
+            <el-main>
+                <!-- header-bar-conmponents -->
+                <!-- view-content-components -->
+            </el-main>
+            <el-aside width="350px">
+                <!-- tabs-components -->
+                <div class="border-l-2 p-5">
+                    right
+                </div>
+            </el-aside>
+        </el-container>
+    </div>
 </template>
 
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue';
+
 </script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

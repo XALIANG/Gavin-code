@@ -3,3 +3,4 @@ dist/
 index.html
 src/assets
 public
+vite.config.ts
