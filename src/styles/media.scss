@@ -1,0 +1,40 @@
+@media screen and (max-width: 390px) {
+    .el-drawer{
+        width: 90% !important;
+    }
+    .header-container{
+        height:70px !important;
+        position: fixed;
+        top: 0;
+    }
+   // 笔记数据区域
+    .noteData{
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        padding-top: 80px !important;
+        div {
+            width: 360px !important;
+            height: 100px !important;
+            margin-top: 10px !important;
+            margin-left: 0px !important;
+        }
+       }
+
+       .note-text{
+        text-indent: 20px;
+        line-height: 100px !important;
+        font-size: 30px;
+        font-weight: bold  !important;
+
+    }
+    .login{
+        left: 1%;
+        top: 9%;
+    }
+    .login-form{
+        width: 200px !important;
+        height: 50px !important;
+        right: 3%;
+    }
+}

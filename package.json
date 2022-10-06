@@ -3,14 +3,17 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 192.168.0.105",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint --cache \"**/*.{js,jsx,ts,tsx,vue}\" --fix"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.0.9",
+    "animate.css": "^4.1.1",
     "element-plus": "^2.2.6",
     "node-sass": "^7.0.1",
+    "pinia": "^2.0.22",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.1",
     "vue": "^3.2.25"

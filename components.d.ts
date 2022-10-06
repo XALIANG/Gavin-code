@@ -5,10 +5,26 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AlanTemplate: typeof import('./src/components/alanTemplate/index.vue')['default']
+    Column: typeof import('./src/components/column.vue')['default']
+    CreateNote: typeof import('./src/components/createNote/index.vue')['default']
+    D: typeof import('./src/components/d.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElColorPicker: typeof import('element-plus/es')['ElColorPicker']
     ElContainer: typeof import('element-plus/es')['ElContainer']
+    ElDrawer: typeof import('element-plus/es')['ElDrawer']
+    ElForm: typeof import('element-plus/es')['ElForm']
+    ElFormItem: typeof import('element-plus/es')['ElFormItem']
+    ElInput: typeof import('element-plus/es')['ElInput']
     ElMain: typeof import('element-plus/es')['ElMain']
+    ElOption: typeof import('element-plus/es')['ElOption']
+    ElSelect: typeof import('element-plus/es')['ElSelect']
+    ElTable: typeof import('element-plus/es')['ElTable']
+    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
+    Pagination: typeof import('./src/components/pagination.vue')['default']
+    Table: typeof import('./src/components/table.vue')['default']
+    Template: typeof import('./src/components/template/index.vue')['default']
   }
 }
 
