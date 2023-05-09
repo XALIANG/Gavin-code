@@ -1,0 +1,73 @@
+.flx-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flx-justify-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flx-align-center {
+    display: flex;
+    align-items: center;
+}
+
+
+.sle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.clearfix::after {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+    content: "";
+}
+
+
+/* 文字多了自動換行 */
+.break-word {
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+
+@for $i from 0 through 40 {
+    .mt#{$i} {
+        margin-top: #{$i}px !important;
+    }
+
+    .mr#{$i} {
+        margin-right: #{$i}px
+    }
+
+    .mb#{$i} {
+        margin-bottom: #{$i}px
+    }
+
+    .ml#{$i} {
+        margin-left: #{$i}px
+    }
+
+    .pt#{$i} {
+        padding-top: #{$i}px
+    }
+
+    .pr#{$i} {
+        padding-right: #{$i}px
+    }
+
+    .pb#{$i} {
+        padding-bottom: #{$i}px
+    }
+
+    .pl#{$i} {
+        padding-left: #{$i}px
+    }
+}

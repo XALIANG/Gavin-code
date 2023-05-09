@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+    },
     "useDefineForClassFields": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -10,9 +17,19 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "skipLibCheck": true,
-    "types": ["element-plus/global"]
+    "types": [
+      "element-plus/global"
+    ]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ],
 }
