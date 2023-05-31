@@ -21,6 +21,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "baseUrl":".",
+    "types": ["element-plus/global"],
     "paths": {
       "@/*":["src/*"],
       "components":["src/components/*"],

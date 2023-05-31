@@ -3,11 +3,11 @@
   <div class="navbar">
     <!-- 左侧面包屑 -->
     <div class="flex">
-      <hamburger
+      <!-- <hamburger
         :is-active="appStore.sidebar.opened"
         @toggle-click="toggleSideBar"
-      />
-      <breadcrumb />
+      /> -->
+      <!-- <breadcrumb /> -->
     </div>
 
     <!-- 右侧导航设置 -->
@@ -34,7 +34,7 @@
           <img :src="userStore.avatar + '?imageView2/1/w/80/h/80'" />
           <i-ep-caret-bottom class="w-3 h-3" />
         </div> -->
-        <template #dropdown>
+        <!-- <template #dropdown>
           <el-dropdown-menu>
             <router-link to="/">
               <el-dropdown-item>{{ $t("navbar.dashboard") }}</el-dropdown-item>
@@ -52,7 +52,7 @@
               {{ $t("navbar.logout") }}
             </el-dropdown-item>
           </el-dropdown-menu>
-        </template>
+        </template> -->
       </el-dropdown>
     </div>
   </div>
@@ -61,51 +61,52 @@
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { useRoute, useRouter } from "vue-router";
+// import { useRoute, useRouter } from "vue-router";
 import { useAppStore } from "@/store/modules/app";
-import { useTagsViewStore } from "@/store/modules/tagsView";
-import { useUserStore } from "@/store/modules/user";
+// import { useTagsViewStore } from "@/store/modules/tagsView";
+// import { useUserStore } from "@/store/modules/user";
 
 const appStore = useAppStore();
-const tagsViewStore = useTagsViewStore();
-const userStore = useUserStore();
+// const tagsViewStore = useTagsViewStore();
+// const userStore = useUserStore();
 
-const route = useRoute();
-const router = useRouter();
+// const route = useRoute();
+// const router = useRouter();
 
 const { device } = storeToRefs(appStore); // 设备类型：desktop-宽屏设备 || mobile-窄屏设备
+console.info('device',device)
 
 /**
  * 左侧菜单栏显示/隐藏
  */
-function toggleSideBar() {
-  appStore.toggleSidebar(true);
-}
+// function toggleSideBar() {
+//   appStore.toggleSidebar(true);
+// }
 
 /**
  * vueUse 全屏
  */
-const { isFullscreen, toggle } = useFullscreen();
+// const { isFullscreen, toggle } = useFullscreen();
 
 /**
  * 注销
  */
-function logout() {
-  ElMessageBox.confirm("确定注销并退出系统吗？", "提示", {
-    confirmButtonText: "确定",
-    cancelButtonText: "取消",
-    type: "warning",
-  }).then(() => {
-    userStore
-      .logout()
-      .then(() => {
-        tagsViewStore.delAllViews();
-      })
-      .then(() => {
-        router.push(`/login?redirect=${route.fullPath}`);
-      });
-  });
-}
+// function logout() {
+//   ElMessageBox.confirm("确定注销并退出系统吗？", "提示", {
+//     confirmButtonText: "确定",
+//     cancelButtonText: "取消",
+//     type: "warning",
+//   }).then(() => {
+//     userStore
+//       .logout()
+//       .then(() => {
+//         tagsViewStore.delAllViews();
+//       })
+//       .then(() => {
+//         router.push(`/login?redirect=${route.fullPath}`);
+//       });
+//   });
+// }
 </script>
 
 <style lang="scss" scoped>

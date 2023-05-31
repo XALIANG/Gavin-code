@@ -1,5 +1,6 @@
 <template>
   <div class="app-wrapper">
+    1111111
     <!-- 手机设备侧边栏打开遮罩层 -->
     <!-- <div
       v-if="classObj.mobile && classObj.openSidebar"
@@ -7,31 +8,31 @@
       @click="handleOutsideClick"
     ></div> -->
 
-    <Sidebar class="sidebar-container" />
-
-    <div :class="{ hasTagsView: true }" class="main-container">
+    <!-- <Sidebar class="sidebar-container" /> -->
+    <!-- <div :class="{ hasTagsView: true }" class="main-container">
       <div :class="{ 'fixed-header': true }">
         <navbar />
         <tags-view />
-      </div>
+      </div> -->
 
       <!--主页面-->
-      <app-main />
+      <!-- <app-main /> -->
 
       <!-- 设置面板 -->
       <!-- <RightPanel v-if="showSettings">
         <settings />
       </RightPanel> -->
-    </div>
+    <!-- </div> -->
   </div>
 </template>
 
 <script setup lang="ts">
 // import { computed, watchEffect } from "vue";
-// import { useWindowSize } from "@vueuse/co/re";
-import { AppMain, Navbar,TagsView } from "./components/index";
-import Sidebar from "./components/Sidebar/index.vue";
-import RightPanel from "@/components/RightPanel/index.vue";
+// import { useWindowSize } from "@vueuse/core";
+// import { AppMain, Navbar,TagsView } from "./components/index";
+// import {  Navbar } from "./components/index";
+// import Sidebar from "./components/Sidebar/index.vue";
+// import RightPanel from "@/components/RightPanel/index.vue";
 
 // import { useAppStore } from "@/store/modules/app";
 // import { useSettingsStore } from "@/store/modules/settings";
@@ -45,7 +46,7 @@ import RightPanel from "@/components/RightPanel/index.vue";
  * 中屏（>=992px）
  * 小屏（>=768px）
  */
-const WIDTH = 992;
+// const WIDTH = 992;
 
 // const appStore = useAppStore();
 // const settingsStore = useSettingsStore();
@@ -62,19 +63,19 @@ const WIDTH = 992;
 // }));
 
 // watchEffect(() => {
-//   if (width.value < WIDTH) {
-//     appStore.toggleDevice("mobile");
-//     appStore.closeSideBar(true);
-//   } else {
-//     appStore.toggleDevice("desktop");
+  // if (width.value < WIDTH) {
+  //   appStore.toggleDevice("mobile");
+  //   appStore.closeSideBar(true);
+  // } else {
+  //   appStore.toggleDevice("desktop");
 
-//     if (width.value >= 1200) {
-//       //大屏
-//       appStore.openSideBar(true);
-//     } else {
-//       appStore.closeSideBar(true);
-//     }
-//   }
+  //   if (width.value >= 1200) {
+  //     //大屏
+  //     appStore.openSideBar(true);
+  //   } else {
+  //     appStore.closeSideBar(true);
+  //   }
+  // }
 // });
 
 // function handleOutsideClick() {

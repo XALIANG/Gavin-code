@@ -9,13 +9,13 @@ import {
 } from "vue";
 import { storeToRefs } from "pinia";
 
-import path from "path-browserify";
+// import path from "path-browserify";
 
 import { useRoute, useRouter } from "vue-router";
 
-import { translateRouteTitleI18n } from "@/utils/i18n";
+// import { translateRouteTitleI18n } from "@/utils/i18n";
 
-import { usePermissionStore } from "@/store/modules/permission";
+// import { usePermissionStore } from "@/store/modules/permission";
 import { useTagsViewStore, TagView } from "@/store/modules/tagsView";
 import ScrollPane from "./ScrollPane.vue";
 
@@ -23,7 +23,7 @@ const { proxy } = getCurrentInstance() as ComponentInternalInstance;
 const router = useRouter();
 const route = useRoute();
 
-const permissionStore = usePermissionStore();
+// const permissionStore = usePermissionStore();
 const tagsViewStore = useTagsViewStore();
 
 const { visitedViews } = storeToRefs(tagsViewStore);
@@ -32,7 +32,7 @@ const selectedTag = ref({});
 const scrollPaneRef = ref();
 const left = ref(0);
 const top = ref(0);
-const affixTags = ref<TagView[]>([]);
+// const affixTags = ref<TagView[]>([]);
 
 watch(
   route,
@@ -55,40 +55,40 @@ watch(tagMenuVisible, (value) => {
   }
 });
 
-function filterAffixTags(routes: any[], basePath = "/") {
-  let tags: TagView[] = [];
+// function filterAffixTags(routes: any[], basePath = "/") {
+//   let tags: TagView[] = [];
 
-  routes.forEach((route) => {
-    if (route.meta && route.meta.affix) {
-      const tagPath = path.resolve(basePath, route.path);
-      tags.push({
-        fullPath: tagPath,
-        path: tagPath,
-        name: route.name,
-        meta: { ...route.meta },
-      });
-    }
+//   routes.forEach((route) => {
+//     if (route.meta && route.meta.affix) {
+//       const tagPath = path.resolve(basePath, route.path);
+//       tags.push({
+//         fullPath: tagPath,
+//         path: tagPath,
+//         name: route.name,
+//         meta: { ...route.meta },
+//       });
+//     }
 
-    if (route.children) {
-      const childTags = filterAffixTags(route.children, route.path);
-      if (childTags.length >= 1) {
-        tags = tags.concat(childTags);
-      }
-    }
-  });
-  return tags;
-}
+//     if (route.children) {
+//       const childTags = filterAffixTags(route.children, route.path);
+//       if (childTags.length >= 1) {
+//         tags = tags.concat(childTags);
+//       }
+//     }
+//   });
+//   return tags;
+// }
 
-function initTags() {
-  const tags: TagView[] = filterAffixTags(permissionStore.routes);
-  affixTags.value = tags;
-  for (const tag of tags) {
-    // Must have tag name
-    if (tag.name) {
-      tagsViewStore.addVisitedView(tag);
-    }
-  }
-}
+// function initTags() {
+//   const tags: TagView[] = filterAffixTags(permissionStore.routes);
+//   affixTags.value = tags;
+//   for (const tag of tags) {
+//     // Must have tag name
+//     if (tag.name) {
+//       tagsViewStore.addVisitedView(tag);
+//     }
+//   }
+// }
 
 function addTags() {
   if (route.name) {
@@ -212,7 +212,7 @@ function openTagMenu(tag: TagView, e: MouseEvent) {
 
   console.log("test", proxy?.$el);
 
-  const offsetLeft = proxy?.$el.getBoundingClientRect().left; // container margin left
+  const offsetLeft = proxy?.$el?.getBoundingClientRect().left; // container margin left
   const offsetWidth = proxy?.$el.offsetWidth; // container width
   const maxLeft = offsetWidth - menuMinWidth; // left boundary
   const l = e.clientX - offsetLeft + 15; // 15: margin right
@@ -237,7 +237,7 @@ function handleScroll() {
 }
 
 onMounted(() => {
-  initTags();
+  // initTags();
 });
 </script>
 
@@ -253,7 +253,7 @@ onMounted(() => {
         @click.middle="!isAffix(tag) ? closeSelectedTag(tag) : ''"
         @contextmenu.prevent="openTagMenu(tag, $event)"
       >
-        {{ translateRouteTitleI18n(tag.meta?.title) }}
+        <!-- {{ translateRouteTitleI18n(tag.meta?.title) }} -->
         <span
           v-if="!isAffix(tag)"
           class="tags-item-close"

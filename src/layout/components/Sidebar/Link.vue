@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { isExternal } from '@/utils/index';
+// import { isExternal } from '@/utils/index';
 import { useRouter } from 'vue-router';
 
 import { useAppStore } from '@/store/modules/app';
@@ -28,7 +28,7 @@ function push() {
 </script>
 
 <template>
-  <a v-if="isExternal(to)" :href="to" target="_blank" rel="noopener">
+  <a v-if="true" :href="to" target="_blank" rel="noopener">
     <slot />
   </a>
   <div v-else @click="push">

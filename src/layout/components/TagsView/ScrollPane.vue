@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { getCurrentInstance, ref,computed, onMounted, onBeforeUnmount } from 'vue';
 import { useTagsViewStore, TagView } from "@/store/modules/tagsView";
 
 const tagAndTagSpacing = ref(4);
@@ -49,7 +50,7 @@ function moveToTarget(currentTag: TagView) {
   } else {
     const tagListDom = document.getElementsByClassName("tags-item");
     const currentIndex = tagsViewStore.visitedViews.findIndex(
-      (item) => item === currentTag
+      (item:unknown) => item === currentTag
     );
     let prevTag = null;
     let nextTag = null;

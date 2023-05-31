@@ -1,10 +1,55 @@
+<template>
+  <div v-if="!item.meta || !item.meta.hidden">
+    <!-- 只包含一个子路由节点的路由，显示其【唯一子路由】 -->
+    <template
+      v-if="
+        hasOneShowingChild(item.children, item) &&
+        (!onlyOneChild.children || onlyOneChild.noShowingChildren)
+      "
+    >
+      <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
+        <el-menu-item :index="resolvePath(onlyOneChild.path)">
+          <svg-icon
+            v-if="onlyOneChild.meta && onlyOneChild.meta.icon"
+            :icon-class="onlyOneChild.meta.icon"
+          />
+          <template #title>
+            {{ translateRouteTitleI18n(onlyOneChild.meta.title) }}
+          </template>
+        </el-menu-item>
+      </app-link>
+    </template>
+
+    <!-- 包含多个子路由  -->
+    <el-sub-menu v-else :index="resolvePath(item.path)" teleported>
+      <template #title>
+        <svg-icon
+          v-if="item.meta && item.meta.icon"
+          :icon-class="item.meta.icon"
+        />
+        <span v-if="item.meta && item.meta.title">{{
+          translateRouteTitleI18n(item.meta.title)
+        }}</span>
+      </template>
+
+      <sidebar-item
+        v-for="child in item.children"
+        :key="child.path"
+        :item="child"
+        :base-path="resolvePath(child.path)"
+      />
+    </el-sub-menu>
+  </div>
+</template>
+
 <script setup lang="ts">
-import path from 'path-browserify';
+// import path from 'path-browserify';
+import {ref} from 'vue';
 import { isExternal } from '@/utils/index';
 import AppLink from './Link.vue';
 
 import { translateRouteTitleI18n } from '@/utils/i18n';
-import SvgIcon from '@/components/SvgIcon/index.vue';
+// import SvgIcon from '@/components/SvgIcon/index.vue';
 
 const props = defineProps({
   /**
@@ -72,50 +117,9 @@ function resolvePath(routePath: string) {
     return props.basePath;
   }
   // 完整路径 = 父级路径(/level/level_3) + 路由路径
-  const fullPath = path.resolve(props.basePath, routePath); // 相对路径 → 绝对路径
-  return fullPath;
+  // const fullPath = path.resolve(props.basePath, routePath); // 相对路径 → 绝对路径
+  // return fullPath;
+  return '/';
 }
 </script>
-<template>
-  <div v-if="!item.meta || !item.meta.hidden">
-    <!-- 只包含一个子路由节点的路由，显示其【唯一子路由】 -->
-    <template
-      v-if="
-        hasOneShowingChild(item.children, item) &&
-        (!onlyOneChild.children || onlyOneChild.noShowingChildren)
-      "
-    >
-      <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)">
-        <el-menu-item :index="resolvePath(onlyOneChild.path)">
-          <svg-icon
-            v-if="onlyOneChild.meta && onlyOneChild.meta.icon"
-            :icon-class="onlyOneChild.meta.icon"
-          />
-          <template #title>
-            {{ translateRouteTitleI18n(onlyOneChild.meta.title) }}
-          </template>
-        </el-menu-item>
-      </app-link>
-    </template>
 
-    <!-- 包含多个子路由  -->
-    <el-sub-menu v-else :index="resolvePath(item.path)" teleported>
-      <template #title>
-        <svg-icon
-          v-if="item.meta && item.meta.icon"
-          :icon-class="item.meta.icon"
-        />
-        <span v-if="item.meta && item.meta.title">{{
-          translateRouteTitleI18n(item.meta.title)
-        }}</span>
-      </template>
-
-      <sidebar-item
-        v-for="child in item.children"
-        :key="child.path"
-        :item="child"
-        :base-path="resolvePath(child.path)"
-      />
-    </el-sub-menu>
-  </div>
-</template>

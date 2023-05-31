@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { useSettingsStore } from "@/store/modules/settings";
 
 import IconEpSunny from "~icons/ep/sunny";
@@ -196,4 +196,4 @@ onMounted(() => {
     }
   }
 }
-</style>
+</style> -->

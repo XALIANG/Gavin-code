@@ -1,10 +1,11 @@
+import {reactive,computed} from 'vue';
 import { defineStore } from "pinia";
 import { useStorage } from "@vueuse/core";
 import defaultSettings from "@/settings";
 
 // 导入 Element Plus 中英文语言包
-import zhCn from "element-plus/es/locale/lang/zh-cn";
-import en from "element-plus/es/locale/lang/en";
+// import zhCn from "element-plus/es/locale/lang/zh-cn";
+// import en from "element-plus/es/locale/lang/en";
 
 // setup
 export const useAppStore = defineStore("app", () => {
@@ -22,13 +23,13 @@ export const useAppStore = defineStore("app", () => {
   /**
    * 根据语言标识读取对应的语言包
    */
-  const locale = computed(() => {
-    if (language?.value == "en") {
-      return en;
-    } else {
-      return zhCn;
-    }
-  });
+  // const locale = computed(() => {
+  //   if (language?.value == "en") {
+  //     return en;
+  //   } else {
+  //     return zhCn;
+  //   }
+  // });
 
   // actions
   function toggleSidebar(withoutAnimation: boolean) {
@@ -73,7 +74,7 @@ export const useAppStore = defineStore("app", () => {
     device,
     sidebar,
     language,
-    locale,
+    // locale,
     size,
     toggleDevice,
     changeSize,

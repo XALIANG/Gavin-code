@@ -1,3 +1,4 @@
+import { ref} from 'vue';
 import { defineStore } from "pinia";
 import defaultSettings from "@/settings";
 import { useStorage } from "@vueuse/core";

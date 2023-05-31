@@ -1,8 +1,8 @@
 import { ref } from 'vue';
 import { defineStore } from "pinia";
-import { loginApi, logoutApi } from "@/api/auth";
+import { loginApi } from "@/api/auth";
 import { getUserInfo } from "@/api/user";
-import { resetRouter } from "@/router";
+// import { resetRouter } from "@/router";
 import { store } from "@/store";
 
 import { LoginData } from "@/api/auth/types";
@@ -27,12 +27,12 @@ export const useUserStore = defineStore("user", () => {
   function login(loginData: LoginData) {
     return new Promise<void>((resolve, reject) => {
       loginApi(loginData)
-        .then((response) => {
+        .then((response:any) => {
           const { tokenType, accessToken } = response.data;
           token.value = tokenType + " " + accessToken; // Bearer eyJhbGciOiJIUzI1NiJ9.xxx.xxx
           resolve();
         })
-        .catch((error) => {
+        .catch((error:any) => {
           reject(error);
         });
     });
@@ -55,27 +55,27 @@ export const useUserStore = defineStore("user", () => {
           perms.value = data.perms;
           resolve(data);
         })
-        .catch((error) => {
+        .catch((error:any) => {
           reject(error);
         });
     });
   }
 
   // 注销
-  function logout() {
-    return new Promise<void>((resolve, reject) => {
-      logoutApi()
-        .then(() => {
-          resetRouter();
-          resetToken();
-          location.reload(); // 清空路由
-          resolve();
-        })
-        .catch((error) => {
-          reject(error);
-        });
-    });
-  }
+  // function logout() {
+  //   return new Promise<void>((resolve, reject) => {
+  //     logoutApi()
+  //       .then(() => {
+  //         resetRouter();
+  //         resetToken();
+  //         location.reload(); // 清空路由
+  //         resolve();
+  //       })
+  //       .catch((error) => {
+  //         reject(error);
+  //       });
+  //   });
+  // }
 
   // 重置
   function resetToken() {
@@ -93,7 +93,7 @@ export const useUserStore = defineStore("user", () => {
     perms,
     login,
     getInfo,
-    logout,
+    // logout,
     resetToken,
   };
 });
