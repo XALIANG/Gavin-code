@@ -1,5 +1,14 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
+// import router from '@/router';
+import { setupStore } from '@/store';
+// import '@/permission';
 
-createApp(App).mount('#app')
+// 样式
+import 'element-plus/theme-chalk/dark/css-vars.css';
+import '@/styles/index.scss';
+import 'uno.css';
+
+const app = createApp(App);
+setupStore(app);
+app.mount('#app');
