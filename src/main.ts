@@ -1,8 +1,5 @@
-import {createApp} from 'vue';
-import App from './App.vue';
-import router from '@/routers/index';
-import pinia from '@/stores/index';
-import '@/styles/index.scss';
-import '@/styles/common.scss';
+import { createApp } from 'vue'
+import './style.css'
+import App from './App.vue'
 
-createApp(App).use(router).use(pinia).mount('#app');
+createApp(App).mount('#app')
