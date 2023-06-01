@@ -1,15 +1,20 @@
 <template>
   <el-breadcrumb class="h-[50px] flex items-center">
     <transition-group name="breadcrumb">
-      <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="item.path">
+      <el-breadcrumb-item
+        v-for="(item, index) in breadcrumbs"
+        :key="item.path"
+      >
         <span
           v-if="
             item.redirect === 'noredirect' || index === breadcrumbs.length - 1
           "
           class="text-[var(--el-disabled-text-color)]"
-          >{{ translateRouteTitleI18n(item.meta.title) }}</span
+        >{{ translateRouteTitleI18n(item.meta.title) }}</span>
+        <a
+          v-else
+          @click.prevent="handleLink(item)"
         >
-        <a v-else @click.prevent="handleLink(item)">
           {{ translateRouteTitleI18n(item.meta.title) }}
         </a>
       </el-breadcrumb-item>

@@ -1,8 +1,8 @@
-<!-- <script setup lang="ts">
+<script setup lang="ts">
 import { useSettingsStore } from "@/store/modules/settings";
 
-import IconEpSunny from "~icons/ep/sunny";
-import IconEpMoon from "~icons/ep/moon";
+// import IconEpSunny from "~icons/ep/sunny";
+// import IconEpMoon from "~icons/ep/moon";
 
 /**
  * 暗黑模式
@@ -44,11 +44,16 @@ onMounted(() => {
 
 <template>
   <div class="settings-container">
-    <h3 class="text-base font-bold">项目配置</h3>
+    <h3 class="text-base font-bold">
+      项目配置
+    </h3>
     <el-divider>主题</el-divider>
 
-    <div class="flex justify-center" @click.stop>
-      <el-switch
+    <div
+      class="flex justify-center"
+      @click.stop
+    >
+      <!-- <el-switch
         v-model="isDark"
         inline-prompt
         :active-icon="IconEpMoon"
@@ -56,7 +61,7 @@ onMounted(() => {
         active-color="var(--el-fill-color-dark)"
         inactive-color="var(--el-color-primary)"
         @change="toggleDark"
-      />
+      /> -->
     </div>
 
     <el-divider>界面设置</el-divider>
@@ -90,11 +95,14 @@ onMounted(() => {
     <el-divider>导航设置</el-divider>
 
     <ul class="layout">
-      <el-tooltip content="左侧模式" placement="bottom">
+      <el-tooltip
+        content="左侧模式"
+        placement="bottom"
+      >
         <li
           :class="
             'layout-item layout-left ' +
-            (settingsStore.layout == 'left' ? 'is-active' : '')
+              (settingsStore.layout == 'left' ? 'is-active' : '')
           "
           @click="changeLayout('left')"
         >
@@ -102,11 +110,14 @@ onMounted(() => {
           <div />
         </li>
       </el-tooltip>
-      <el-tooltip content="顶部模式" placement="bottom">
+      <el-tooltip
+        content="顶部模式"
+        placement="bottom"
+      >
         <li
           :class="
             'layout-item layout-top ' +
-            (settingsStore.layout == 'top' ? 'is-active' : '')
+              (settingsStore.layout == 'top' ? 'is-active' : '')
           "
           @click="changeLayout('top')"
         >
@@ -114,11 +125,14 @@ onMounted(() => {
           <div />
         </li>
       </el-tooltip>
-      <el-tooltip content="混合模式" placement="bottom">
+      <el-tooltip
+        content="混合模式"
+        placement="bottom"
+      >
         <li
           :class="
             'layout-item layout-mix ' +
-            (settingsStore.layout == 'mix' ? 'is-active' : '')
+              (settingsStore.layout == 'mix' ? 'is-active' : '')
           "
           @click="changeLayout('mix')"
         >
@@ -196,4 +210,4 @@ onMounted(() => {
     }
   }
 }
-</style> -->
+</style>

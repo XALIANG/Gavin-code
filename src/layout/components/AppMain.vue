@@ -1,22 +1,20 @@
+<script setup lang="ts">
+import { useTagsViewStore } from "@/store/modules/tagsView";
+
+const tagsViewStore = useTagsViewStore();
+</script>
+
 <template>
   <section class="app-main">
-    <!-- <router-view v-slot="{ Component, route }">
+    <router-view v-slot="{ Component, route }">
       <transition name="router-fade" mode="out-in">
         <keep-alive :include="tagsViewStore.cachedViews">
           <component :is="Component" :key="route.fullPath" />
         </keep-alive>
       </transition>
-    </router-view> -->
+    </router-view>
   </section>
 </template>
-
-<script setup lang="ts">
-// import { useTagsViewStore } from "@/store/modules/tagsView";
-
-// const tagsViewStore = useTagsViewStore();
-</script>
-
-
 
 <style lang="scss" scoped>
 .app-main {
