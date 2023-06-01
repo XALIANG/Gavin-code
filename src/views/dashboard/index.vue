@@ -17,11 +17,11 @@
             </span>
           </div>
 
-          <div class="leading-[40px]">
+          <!-- <div class="leading-[40px]">
             {{ greetings }}
-          </div>
+          </div> -->
 
-          <div class="space-x-2 flex items-center">
+          <!-- <div class="space-x-2 flex items-center">
             <el-link
               target="_blank"
               type="danger"
@@ -45,7 +45,7 @@
             >
               GitHub源码
             </el-link>
-          </div>
+          </div> -->
         </div>
       </el-card>
     </el-row>

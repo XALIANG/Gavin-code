@@ -7,9 +7,15 @@ const tagsViewStore = useTagsViewStore();
 <template>
   <section class="app-main">
     <router-view v-slot="{ Component, route }">
-      <transition name="router-fade" mode="out-in">
+      <transition
+        name="router-fade"
+        mode="out-in"
+      >
         <keep-alive :include="tagsViewStore.cachedViews">
-          <component :is="Component" :key="route.fullPath" />
+          <component
+            :is="Component"
+            :key="route.fullPath"
+          />
         </keep-alive>
       </transition>
     </router-view>

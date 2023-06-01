@@ -1,9 +1,9 @@
 <template>
   <div :class="{ 'has-logo': sidebarLogo }">
-    <logo
+    <!-- <logo
       v-if="sidebarLogo"
       :collapse="!appStore.sidebar.opened"
-    />
+    /> -->
     <el-scrollbar>
       <el-menu
         :default-active="currRoute.path"
@@ -31,7 +31,7 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router";
 import SidebarItem from "./SidebarItem.vue";
-import Logo from "./Logo.vue";
+// import Logo from "./Logo.vue";
 
 import { useSettingsStore } from "@/store/modules/settings";
 import { usePermissionStore } from "@/store/modules/permission";

@@ -10,15 +10,15 @@
       @click="handleOutsideClick"
     />
 
-    <!-- <Sidebar class="sidebar-container" /> -->
+    <Sidebar class="sidebar-container" />
 
     <div
       :class="{ hasTagsView: showTagsView }"
       class="main-container"
     >
       <div :class="{ 'fixed-header': fixedHeader }">
-        <!-- <navbar /> -->
-        <!-- <tags-view v-if="showTagsView" /> -->
+        <navbar />
+        <tags-view v-if="showTagsView" />
       </div>
 
       <!--主页面-->
@@ -35,9 +35,8 @@
 <script setup lang="ts">
 import { computed, watchEffect } from "vue";
 import { useWindowSize } from "@vueuse/core";
-import { AppMain} from "./components/index";
-// import { AppMain, Navbar,TagsView } from "./components/index";
-// import Sidebar from "./components/Sidebar/index.vue";
+import { AppMain, Navbar,TagsView } from "./components/index";
+import Sidebar from "./components/Sidebar/index.vue";
 import RightPanel from "@/components/RightPanel/index.vue";
 import { useAppStore } from "@/store/modules/app";
 import { useSettingsStore } from "@/store/modules/settings";
