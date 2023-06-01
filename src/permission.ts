@@ -6,7 +6,7 @@ import { usePermissionStoreHook } from "@/store/modules/permission";
 const permissionStore = usePermissionStoreHook();
 
 // 白名单路由
-const whiteList = ["/login",'/dashboard'];
+const whiteList = ["/login",];
 
 router.beforeEach(async (to, from, next) => {
   const hasToken = localStorage.getItem("accessToken");

@@ -25,9 +25,9 @@
       <app-main />
 
       <!-- 设置面板 -->
-      <RightPanel v-if="showSettings">
+      <!-- <RightPanel v-if="showSettings">
         <settings />
-      </RightPanel>
+      </RightPanel> -->
     </div>
   </div>
 </template>
@@ -37,7 +37,7 @@ import { computed, watchEffect } from "vue";
 import { useWindowSize } from "@vueuse/core";
 import { AppMain, Navbar,TagsView } from "./components/index";
 import Sidebar from "./components/Sidebar/index.vue";
-import RightPanel from "@/components/RightPanel/index.vue";
+// import RightPanel from "@/components/RightPanel/index.vue";
 import { useAppStore } from "@/store/modules/app";
 import { useSettingsStore } from "@/store/modules/settings";
 
@@ -56,7 +56,7 @@ const settingsStore = useSettingsStore();
 
 const fixedHeader = computed(() => settingsStore.fixedHeader);
 const showTagsView = computed(() => settingsStore.tagsView);
-const showSettings = computed(() => settingsStore.showSettings);
+// const showSettings = computed(() => settingsStore.showSettings);
 
 const classObj = computed(() => ({
   hideSidebar: !appStore.sidebar.opened,

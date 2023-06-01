@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import {ref} from 'vue';
 import path from 'path-browserify';
 import { isExternal } from '@/utils/index';
 import AppLink from './Link.vue';

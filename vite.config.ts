@@ -13,6 +13,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     resolve: {
       alias: {
         "@": pathUrl,
+        'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js'
       },
     },
     css: { 

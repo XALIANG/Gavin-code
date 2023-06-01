@@ -63,8 +63,8 @@ onBeforeUnmount(() => {
         }"
         @click="show = !show"
       >
-        <i-ep-close v-show="show" />
-        <i-ep-setting v-show="!show" />
+        <!-- <i-ep-close v-show="show" /> -->
+        <!-- <i-ep-setting v-show="!show" /> -->
       </div>
       <div>
         <slot />
