@@ -1,43 +1,48 @@
 <template>
-  <div class="app-wrapper">
+  <div
+    :class="classObj"
+    class="app-wrapper"
+  >
     <!-- 手机设备侧边栏打开遮罩层 -->
-    <!-- <div
+    <div
       v-if="classObj.mobile && classObj.openSidebar"
       class="drawer-bg"
       @click="handleOutsideClick"
-    ></div> -->
+    />
 
-    <Sidebar class="sidebar-container" />
+    <!-- <Sidebar class="sidebar-container" /> -->
 
-    <div :class="{ hasTagsView: true }" class="main-container">
-      <div :class="{ 'fixed-header': true }">
-        <navbar />
-        <tags-view />
+    <div
+      :class="{ hasTagsView: showTagsView }"
+      class="main-container"
+    >
+      <div :class="{ 'fixed-header': fixedHeader }">
+        <!-- <navbar /> -->
+        <!-- <tags-view v-if="showTagsView" /> -->
       </div>
 
       <!--主页面-->
       <app-main />
 
       <!-- 设置面板 -->
-      <!-- <RightPanel v-if="showSettings">
+      <RightPanel v-if="showSettings">
         <settings />
-      </RightPanel> -->
+      </RightPanel>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-// import { computed, watchEffect } from "vue";
-// import { useWindowSize } from "@vueuse/co/re";
-import { AppMain, Navbar,TagsView } from "./components/index";
-import Sidebar from "./components/Sidebar/index.vue";
+import { computed, watchEffect } from "vue";
+import { useWindowSize } from "@vueuse/core";
+import { AppMain} from "./components/index";
+// import { AppMain, Navbar,TagsView } from "./components/index";
+// import Sidebar from "./components/Sidebar/index.vue";
 import RightPanel from "@/components/RightPanel/index.vue";
+import { useAppStore } from "@/store/modules/app";
+import { useSettingsStore } from "@/store/modules/settings";
 
-// import { useAppStore } from "@/store/modules/app";
-// import { useSettingsStore } from "@/store/modules/settings";
-
-// const { width } = useWindowSize();
-
+const { width } = useWindowSize();
 /**
  * 响应式布局容器固定宽度
  *
@@ -47,39 +52,39 @@ import RightPanel from "@/components/RightPanel/index.vue";
  */
 const WIDTH = 992;
 
-// const appStore = useAppStore();
-// const settingsStore = useSettingsStore();
+const appStore = useAppStore();
+const settingsStore = useSettingsStore();
 
-// const fixedHeader = computed(() => settingsStore.fixedHeader);
-// const showTagsView = computed(() => settingsStore.tagsView);
-// const showSettings = computed(() => settingsStore.showSettings);
+const fixedHeader = computed(() => settingsStore.fixedHeader);
+const showTagsView = computed(() => settingsStore.tagsView);
+const showSettings = computed(() => settingsStore.showSettings);
 
-// const classObj = computed(() => ({
-//   hideSidebar: !appStore.sidebar.opened,
-//   openSidebar: appStore.sidebar.opened,
-//   withoutAnimation: appStore.sidebar.withoutAnimation,
-//   mobile: appStore.device === "mobile",
-// }));
+const classObj = computed(() => ({
+  hideSidebar: !appStore.sidebar.opened,
+  openSidebar: appStore.sidebar.opened,
+  withoutAnimation: appStore.sidebar.withoutAnimation,
+  mobile: appStore.device === "mobile",
+}));
 
-// watchEffect(() => {
-//   if (width.value < WIDTH) {
-//     appStore.toggleDevice("mobile");
-//     appStore.closeSideBar(true);
-//   } else {
-//     appStore.toggleDevice("desktop");
+watchEffect(() => {
+  if (width.value < WIDTH) {
+    appStore.toggleDevice("mobile");
+    appStore.closeSideBar(true);
+  } else {
+    appStore.toggleDevice("desktop");
 
-//     if (width.value >= 1200) {
-//       //大屏
-//       appStore.openSideBar(true);
-//     } else {
-//       appStore.closeSideBar(true);
-//     }
-//   }
-// });
+    if (width.value >= 1200) {
+      //大屏
+      appStore.openSideBar(true);
+    } else {
+      appStore.closeSideBar(true);
+    }
+  }
+});
 
-// function handleOutsideClick() {
-//   appStore.closeSideBar(false);
-// }
+function handleOutsideClick() {
+  appStore.closeSideBar(false);
+}
 </script>
 
 

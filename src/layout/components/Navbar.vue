@@ -13,7 +13,10 @@
     <!-- 右侧导航设置 -->
     <div class="flex">
       <!-- 导航栏设置(窄屏隐藏)-->
-      <div v-if="device !== 'mobile'" class="setting-container">
+      <div
+        v-if="device !== 'mobile'"
+        class="setting-container"
+      >
         <!--全屏 -->
         <!-- <div class="setting-item" @click="toggle">
           <svg-icon
@@ -39,16 +42,28 @@
             <router-link to="/">
               <el-dropdown-item>{{ $t("navbar.dashboard") }}</el-dropdown-item>
             </router-link>
-            <a target="_blank" href="https://github.com/hxrui">
+            <a
+              target="_blank"
+              href="https://github.com/hxrui"
+            >
               <el-dropdown-item>Github</el-dropdown-item>
             </a>
-            <a target="_blank" href="https://gitee.com/haoxr">
+            <a
+              target="_blank"
+              href="https://gitee.com/haoxr"
+            >
               <el-dropdown-item>{{ $t("navbar.gitee") }}</el-dropdown-item>
             </a>
-            <a target="_blank" href="https://www.cnblogs.com/haoxianrui/">
+            <a
+              target="_blank"
+              href="https://www.cnblogs.com/haoxianrui/"
+            >
               <el-dropdown-item>{{ $t("navbar.document") }}</el-dropdown-item>
             </a>
-            <el-dropdown-item divided @click="logout">
+            <el-dropdown-item
+              divided
+              @click="logout"
+            >
               {{ $t("navbar.logout") }}
             </el-dropdown-item>
           </el-dropdown-menu>
@@ -60,6 +75,7 @@
 
 
 <script setup lang="ts">
+import {ref} from 'vue';
 import { storeToRefs } from "pinia";
 import { useRoute, useRouter } from "vue-router";
 import { useAppStore } from "@/store/modules/app";
@@ -85,7 +101,7 @@ function toggleSideBar() {
 /**
  * vueUse 全屏
  */
-const { isFullscreen, toggle } = useFullscreen();
+// const { isFullscreen, toggle } = useFullscreen();
 
 /**
  * 注销

@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-container">
     <!-- github角标 -->
-    <github-corner class="github-corner" />
+    <!-- <github-corner class="github-corner" /> -->
 
     <!-- 用户信息 -->
     <el-row class="mb-8">
@@ -159,12 +159,12 @@
         :lg="8"
         class="mb-4"
       >
-        <BarChart
+        <!-- <BarChart
           id="barChart"
           height="400px"
           width="100%"
           class="bg-[var(--el-bg-color-overlay)]"
-        />
+        /> -->
       </el-col>
 
       <el-col
@@ -173,12 +173,12 @@
         :lg="8"
         class="mb-4"
       >
-        <PieChart
+        <!-- <PieChart
           id="pieChart"
           height="400px"
           width="100%"
           class="bg-[var(--el-bg-color-overlay)]"
-        />
+        /> -->
       </el-col>
 
       <el-col
@@ -187,12 +187,12 @@
         :lg="8"
         class="mb-4"
       >
-        <RadarChart
+        <!-- <RadarChart
           id="radarChart"
           height="400px"
           width="100%"
           class="bg-[var(--el-bg-color-overlay)]"
-        />
+        /> -->
       </el-col>
     </el-row>
   </div>
@@ -202,6 +202,7 @@ export default { name: "Dashboard" };
 </script>
 
 <script setup lang="ts">
+import {computed,ref} from 'vue';
 import { useUserStore } from "@/store/modules/user";
 import { useTransition, TransitionPresets } from "@vueuse/core";
 
@@ -226,6 +227,8 @@ const greetings = computed(() => {
     return "晚上好🌃！";
   } else if (date.getHours() >= 0 && date.getHours() < 6) {
     return "偷偷向银河要了一把碎星，只等你闭上眼睛撒入你的梦中，晚安🌛！";
+  }else {
+    return '';
   }
 });
 

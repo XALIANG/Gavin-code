@@ -1,24 +1,9 @@
-<script setup lang="ts">
-import { useRoute } from "vue-router";
-import SidebarItem from "./SidebarItem.vue";
-import Logo from "./Logo.vue";
-
-import { useSettingsStore } from "@/store/modules/settings";
-import { usePermissionStore } from "@/store/modules/permission";
-import { useAppStore } from "@/store/modules/app";
-import { storeToRefs } from "pinia";
-import variables from "@/styles/variables.module.scss";
-
-const settingsStore = useSettingsStore();
-const permissionStore = usePermissionStore();
-const appStore = useAppStore();
-const currRoute = useRoute();
-const { sidebarLogo } = storeToRefs(settingsStore);
-</script>
-
 <template>
   <div :class="{ 'has-logo': sidebarLogo }">
-    <logo v-if="sidebarLogo" :collapse="!appStore.sidebar.opened" />
+    <logo
+      v-if="sidebarLogo"
+      :collapse="!appStore.sidebar.opened"
+    />
     <el-scrollbar>
       <el-menu
         :default-active="currRoute.path"
@@ -41,3 +26,23 @@ const { sidebarLogo } = storeToRefs(settingsStore);
     </el-scrollbar>
   </div>
 </template>
+
+
+<script setup lang="ts">
+import { useRoute } from "vue-router";
+import SidebarItem from "./SidebarItem.vue";
+import Logo from "./Logo.vue";
+
+import { useSettingsStore } from "@/store/modules/settings";
+import { usePermissionStore } from "@/store/modules/permission";
+import { useAppStore } from "@/store/modules/app";
+import { storeToRefs } from "pinia";
+import variables from "@/styles/variables.module.scss";
+
+const settingsStore = useSettingsStore();
+const permissionStore = usePermissionStore();
+const appStore = useAppStore();
+const currRoute = useRoute();
+const { sidebarLogo } = storeToRefs(settingsStore);
+</script>
+

@@ -10,7 +10,7 @@ import '@/permission';
 // import 'virtual:svg-icons-register';
 
 // 国际化
-// import i18n from '@/lang/index';
+import i18n from '@/lang/index';
 
 // 样式
 import 'element-plus/theme-chalk/dark/css-vars.css';
@@ -23,4 +23,4 @@ setupDirective(app);
 // 全局注册 状态管理(store)
 setupStore(app);
 
-app.use(router).mount('#app');
+app.use(router).use(i18n).mount('#app');
