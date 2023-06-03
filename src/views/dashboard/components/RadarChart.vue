@@ -1,4 +1,4 @@
-<!-- 雷达图 -->
+<!-- 雷达图
 <template>
   <el-card>
     <template #header> 订单状态雷达图 </template>
@@ -97,4 +97,4 @@ onMounted(() => {
     chart.resize();
   });
 });
-</script>
+</script> -->

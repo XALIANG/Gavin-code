@@ -1,4 +1,4 @@
-<!-- 饼图 -->
+<!-- 饼图
 <template>
   <el-card>
     <template #header> 产品分类饼图 </template>
@@ -76,4 +76,4 @@ onMounted(() => {
     chart.resize();
   });
 });
-</script>
+</script> -->

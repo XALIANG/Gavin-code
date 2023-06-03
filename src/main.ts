@@ -1,13 +1,13 @@
-import { createApp } from 'vue';
+import {createApp} from 'vue';
 import App from './App.vue';
 import router from '@/router';
-import { setupStore } from '@/store';
-import { setupDirective } from '@/directive';
+import {setupStore} from '@/store';
+import {setupDirective} from '@/directive';
 
 import '@/permission';
 
 // 本地SVG图标
-// import 'virtual:svg-icons-register';
+import 'virtual:svg-icons-register';
 
 // 国际化
 import i18n from '@/lang/index';
@@ -15,7 +15,7 @@ import i18n from '@/lang/index';
 // 样式
 import 'element-plus/theme-chalk/dark/css-vars.css';
 import '@/styles/index.scss';
-// import 'uno.css';
+import 'uno.css';
 
 const app = createApp(App);
 // 全局注册 自定义指令(directive)

@@ -206,16 +206,8 @@ import {computed,ref} from 'vue';
 import { useUserStore } from "@/store/modules/user";
 import { useTransition, TransitionPresets } from "@vueuse/core";
 
-// import GithubCorner from "@/components/GithubCorner/index.vue";
-// import SvgIcon from "@/components/SvgIcon/index.vue";
-// import BarChart from "./components/BarChart.vue";
-// import PieChart from "./components/PieChart.vue";
-// import RadarChart from "./components/RadarChart.vue";
-
 const userStore = useUserStore();
-
 const date: Date = new Date();
-
 const greetings = computed(() => {
   if (date.getHours() >= 6 && date.getHours() < 8) {
     return "晨起披衣出草堂，轩窗已自喜微凉🌅！";

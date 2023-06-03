@@ -1,3 +1,23 @@
+<template>
+  <div ref="rightPanel" :class="{ show: show }">
+    <div class="right-panel-overlay" ></div>
+    <div class="right-panel-container">
+      <div
+        class="right-panel-btn"
+        :style="{
+          top: buttonTop + 'px',
+        }"
+        @click="show = !show"
+      >
+       <i-ep-close v-show="show" />
+        <i-ep-setting v-show="!show" />
+      </div>
+      <div>
+        <slot></slot>
+      </div>
+    </div>
+  </div>
+</template>
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref, watch } from "vue";
 
@@ -52,26 +72,7 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<template>
-  <div ref="rightPanel" :class="{ show: show }">
-    <div class="right-panel-overlay" />
-    <div class="right-panel-container">
-      <div
-        class="right-panel-btn"
-        :style="{
-          top: buttonTop + 'px',
-        }"
-        @click="show = !show"
-      >
-        <!-- <i-ep-close v-show="show" /> -->
-        <!-- <i-ep-setting v-show="!show" /> -->
-      </div>
-      <div>
-        <slot />
-      </div>
-    </div>
-  </div>
-</template>
+
 
 <style lang="scss" scoped>
 .showRightPanel {

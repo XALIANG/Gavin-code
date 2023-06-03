@@ -1,4 +1,4 @@
-<!-- 漏斗图 -->
+<!-- 漏斗图
 <template>
   <div :id="id" :class="className" :style="{ height, width }" />
 </template>
@@ -103,4 +103,4 @@ onMounted(() => {
     chart.resize();
   });
 });
-</script>
+</script> -->

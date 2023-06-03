@@ -1,4 +1,4 @@
-<!--  线 + 柱混合图 -->
+ <!-- 线 + 柱混合图
 <template>
   <el-card>
     <template #header> 业绩柱状图 </template>
@@ -143,4 +143,4 @@ onMounted(() => {
     chart.resize();
   });
 });
-</script>
+</script> -->

@@ -1,100 +1,53 @@
-<script setup lang="ts">
-import { useSettingsStore } from "@/store/modules/settings";
-
-// import IconEpSunny from "~icons/ep/sunny";
-// import IconEpMoon from "~icons/ep/moon";
-
-/**
- * 暗黑模式
- */
-const settingsStore = useSettingsStore();
-const isDark = useDark();
-const toggleDark = () => useToggle(isDark);
-
-/**
- * 切换布局
- */
-function changeLayout(layout: string) {
-  settingsStore.changeSetting({ key: "layout", value: layout });
-  window.document.body.setAttribute("layout", settingsStore.layout);
-}
-
-// 主题颜色
-const themeColors = ref<string[]>([
-  "#409EFF",
-  "#304156",
-  "#11a983",
-  "#13c2c2",
-  "#6959CD",
-  "#f5222d",
-]);
-
-/**
- * 切换主题颜色
- */
-function changeThemeColor(color: string) {
-  document.documentElement.style.setProperty("--el-color-primary", color);
-  settingsStore.changeSetting({ key: "layout", value: color });
-}
-
-onMounted(() => {
-  window.document.body.setAttribute("layout", settingsStore.layout);
-});
-</script>
-
 <template>
-  <div class="settings-container">
-    <h3 class="text-base font-bold">
-      项目配置
-    </h3>
-    <el-divider>主题</el-divider>
+    <div class="settings-container">
+        <h3 class="text-base font-bold">
+            项目配置
+        </h3>
+        <el-divider>主题</el-divider>
 
-    <div
-      class="flex justify-center"
-      @click.stop
-    >
-      <!-- <el-switch
-        v-model="isDark"
-        inline-prompt
-        :active-icon="IconEpMoon"
-        :inactive-icon="IconEpSunny"
-        active-color="var(--el-fill-color-dark)"
-        inactive-color="var(--el-color-primary)"
-        @change="toggleDark"
-      /> -->
-    </div>
+        <div
+            class="flex justify-center"
+            @click.stop
+        >
+            <el-switch
+                v-model="isDark"
+                inline-prompt
+                active-color="var(--el-fill-color-dark)"
+                inactive-color="var(--el-color-primary)"
+                @change="toggleDark"
+            />
+        </div>
 
-    <el-divider>界面设置</el-divider>
-    <div class="py-[8px] flex justify-between">
-      <span class="text-xs">开启 Tags-View</span>
-      <el-switch v-model="settingsStore.tagsView" />
-    </div>
+        <el-divider>界面设置</el-divider>
+        <div class="py-[8px] flex justify-between">
+            <span class="text-xs">开启 Tags-View</span>
+            <el-switch v-model="settingsStore.tagsView"/>
+        </div>
 
-    <div class="py-[8px] flex justify-between">
-      <span class="text-xs">固定 Header</span>
-      <el-switch v-model="settingsStore.fixedHeader" />
-    </div>
+        <div class="py-[8px] flex justify-between">
+            <span class="text-xs">固定 Header</span>
+            <el-switch v-model="settingsStore.fixedHeader"/>
+        </div>
 
-    <div class="py-[8px] flex justify-between">
-      <span class="text-xs">侧边栏 Logo</span>
-      <el-switch v-model="settingsStore.sidebarLogo" />
-    </div>
+        <div class="py-[8px] flex justify-between">
+            <span class="text-xs">侧边栏 Logo</span>
+            <el-switch v-model="settingsStore.sidebarLogo"/>
+        </div>
 
-    <el-divider>主题颜色</el-divider>
+        <el-divider>主题颜色</el-divider>
 
-    <ul class="w-full space-x-2 flex justify-center py-2">
+    <!-- <ul class="w-full space-x-2 flex justify-center py-2">
       <li
         v-for="(color, index) in themeColors"
         :key="index"
         class="inline-block w-[30px] h-[30px] cursor-pointer"
         :style="{ background: color }"
-        @click="changeThemeColor(color)"
-      />
-    </ul>
+      ></li>
+    </ul> -->
 
-    <el-divider>导航设置</el-divider>
+    <!-- <el-divider>导航设置</el-divider> -->
 
-    <ul class="layout">
+    <!-- <ul class="layout">
       <el-tooltip
         content="左侧模式"
         placement="bottom"
@@ -106,8 +59,6 @@ onMounted(() => {
           "
           @click="changeLayout('left')"
         >
-          <div />
-          <div />
         </li>
       </el-tooltip>
       <el-tooltip
@@ -121,8 +72,6 @@ onMounted(() => {
           "
           @click="changeLayout('top')"
         >
-          <div />
-          <div />
         </li>
       </el-tooltip>
       <el-tooltip
@@ -136,13 +85,57 @@ onMounted(() => {
           "
           @click="changeLayout('mix')"
         >
-          <div />
-          <div />
         </li>
       </el-tooltip>
-    </ul>
-  </div>
+     </ul> -->
+    </div>
 </template>
+<script setup lang="ts">
+// import {onMounted} from 'vue';
+import {useSettingsStore} from '@/store/modules/settings';
+import {useToggle, useDark} from '@vueuse/core';
+// import IconEpSunny from "~icons/ep/sunny";
+// import IconEpMoon from "~icons/ep/moon";
+
+/**
+ * 暗黑模式
+ */
+const settingsStore = useSettingsStore();
+const isDark = useDark();
+const toggleDark = () => useToggle(isDark);
+
+// /**
+//  * 切换布局
+//  */
+// function changeLayout(layout: string) {
+//   settingsStore.changeSetting({ key: "layout", value: layout });
+//   window.document.body.setAttribute("layout", settingsStore.layout);
+// }
+
+// 主题颜色
+// const themeColors = ref<string[]>([
+//   "#409EFF",
+//   "#304156",
+//   "#11a983",
+//   "#13c2c2",
+//   "#6959CD",
+//   "#f5222d",
+// ]);
+
+/**
+ * 切换主题颜色
+ */
+// function changeThemeColor(color: string) {
+//   document.documentElement.style.setProperty("--el-color-primary", color);
+//   settingsStore.changeSetting({ key: "layout", value: color });
+// }
+
+// onMounted(() => {
+//   window.document.body.setAttribute("layout", settingsStore.layout);
+// });
+</script>
+
+
 
 <style lang="scss" scoped>
 .settings-container {
