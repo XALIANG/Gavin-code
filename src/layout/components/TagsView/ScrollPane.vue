@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {ref, defineEmits, getCurrentInstance, computed, onMounted, onBeforeUnmount} from 'vue';
-import {useTagsViewStore, TagView} from '@/store/modules/tagsView';
+import {useTagsViewStore, TagView} from '@/store/modules/tagsView.ts';
 
 const tagAndTagSpacing = ref(4);
 const {proxy} = getCurrentInstance() as any;
@@ -34,8 +34,8 @@ function moveToTarget(currentTag: TagView) {
     const $containerWidth = $container.offsetWidth;
     const $scrollWrapper = scrollWrapper.value;
 
-    let firstTag = null;
-    let lastTag = null;
+    let firstTag:any = null;
+    let lastTag:any = null;
 
     // find first tag and last tag
     if (tagsViewStore.visitedViews.length > 0) {
@@ -54,8 +54,8 @@ function moveToTarget(currentTag: TagView) {
         const currentIndex = tagsViewStore.visitedViews.findIndex(
             item => item === currentTag
         );
-        let prevTag = null;
-        let nextTag = null;
+        let prevTag:any = null;
+        let nextTag:any = null;
         for (const k in tagListDom) {
             if (k !== 'length' && Object.hasOwnProperty.call(tagListDom, k)) {
                 if (
@@ -97,14 +97,14 @@ defineExpose({
 </script>
 
 <template>
-    <el-scrollbar
-        ref="scrollContainer"
-        class="scroll-container"
-        :vertical="false"
-        @wheel.prevent="handleScroll"
-    >
-        <slot></slot>
-    </el-scrollbar>
+  <el-scrollbar
+    ref="scrollContainer"
+    class="scroll-container"
+    :vertical="false"
+    @wheel.prevent="handleScroll"
+  >
+    <slot />
+  </el-scrollbar>
 </template>
 
 <style lang="scss" scoped>

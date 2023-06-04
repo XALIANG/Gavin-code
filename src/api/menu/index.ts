@@ -42,6 +42,7 @@ export function listMenuOptions(): AxiosPromise<OptionType[]> {
  */
 export function getMenuForm(id: number): AxiosPromise<MenuForm> {
     return request({
+        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         url: '/api/v1/menus/' + id + '/form',
         method: 'get',
     });
@@ -81,6 +82,7 @@ export function updateMenu(id: string, data: MenuForm) {
  */
 export function deleteMenu(id: number) {
     return request({
+        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         url: '/api/v1/menus/' + id,
         method: 'delete',
     });

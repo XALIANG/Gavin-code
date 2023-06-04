@@ -38,7 +38,7 @@ router.beforeEach(async (to, from, next) => {
                 }
                 catch (error) {
                     // 移除 token 并跳转登录页
-                    await userStore.resetToken();
+                    userStore.resetToken();
                     next(`/login?redirect=${to.path}`);
                 }
             }

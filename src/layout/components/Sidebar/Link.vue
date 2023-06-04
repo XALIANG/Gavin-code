@@ -28,13 +28,18 @@ function push() {
 </script>
 
 <template>
-    <a
-        v-if="isExternal(to)" :href="to"
-        target="_blank" rel="noopener"
-    >
-        <slot></slot>
-    </a>
-    <div v-else @click="push">
-        <slot></slot>
-    </div>
+  <a
+    v-if="isExternal(to)"
+    :href="to"
+    target="_blank"
+    rel="noopener"
+  >
+    <slot />
+  </a>
+  <div
+    v-else
+    @click="push"
+  >
+    <slot />
+  </div>
 </template>

@@ -34,6 +34,7 @@ export function getUserPage(
  */
 export function getUserForm(userId: number): AxiosPromise<UserForm> {
     return request({
+        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         url: '/api/v1/users/' + userId + '/form',
         method: 'get',
     });
@@ -60,6 +61,7 @@ export function addUser(data: any) {
  */
 export function updateUser(id: number, data: UserForm) {
     return request({
+        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         url: '/api/v1/users/' + id,
         method: 'put',
         data: data,
@@ -74,6 +76,7 @@ export function updateUser(id: number, data: UserForm) {
  */
 export function updateUserStatus(id: number, status: number) {
     return request({
+        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         url: '/api/v1/users/' + id + '/status',
         method: 'patch',
         params: {status: status},
@@ -88,6 +91,7 @@ export function updateUserStatus(id: number, status: number) {
  */
 export function updateUserPassword(id: number, password: string) {
     return request({
+        // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
         url: '/api/v1/users/' + id + '/password',
         method: 'patch',
         params: {password: password},

@@ -1,40 +1,40 @@
 <template>
-    <div class="settings-container">
-        <h3 class="text-base font-bold">
-            项目配置
-        </h3>
-        <el-divider>主题</el-divider>
+  <div class="settings-container">
+    <h3 class="text-base font-bold">
+      项目配置
+    </h3>
+    <el-divider>主题</el-divider>
 
-        <div
-            class="flex justify-center"
-            @click.stop
-        >
-            <el-switch
-                v-model="isDark"
-                inline-prompt
-                active-color="var(--el-fill-color-dark)"
-                inactive-color="var(--el-color-primary)"
-                @change="toggleDark"
-            />
-        </div>
+    <div
+      class="flex justify-center"
+      @click.stop
+    >
+      <el-switch
+        v-model="isDark"
+        inline-prompt
+        active-color="var(--el-fill-color-dark)"
+        inactive-color="var(--el-color-primary)"
+        @change="toggleDark"
+      />
+    </div>
 
-        <el-divider>界面设置</el-divider>
-        <div class="py-[8px] flex justify-between">
-            <span class="text-xs">开启 Tags-View</span>
-            <el-switch v-model="settingsStore.tagsView"/>
-        </div>
+    <el-divider>界面设置</el-divider>
+    <div class="py-[8px] flex justify-between">
+      <span class="text-xs">开启 Tags-View</span>
+      <el-switch v-model="settingsStore.tagsView" />
+    </div>
 
-        <div class="py-[8px] flex justify-between">
-            <span class="text-xs">固定 Header</span>
-            <el-switch v-model="settingsStore.fixedHeader"/>
-        </div>
+    <div class="py-[8px] flex justify-between">
+      <span class="text-xs">固定 Header</span>
+      <el-switch v-model="settingsStore.fixedHeader" />
+    </div>
 
-        <div class="py-[8px] flex justify-between">
-            <span class="text-xs">侧边栏 Logo</span>
-            <el-switch v-model="settingsStore.sidebarLogo"/>
-        </div>
+    <div class="py-[8px] flex justify-between">
+      <span class="text-xs">侧边栏 Logo</span>
+      <el-switch v-model="settingsStore.sidebarLogo" />
+    </div>
 
-        <el-divider>主题颜色</el-divider>
+    <el-divider>主题颜色</el-divider>
 
     <!-- <ul class="w-full space-x-2 flex justify-center py-2">
       <li
@@ -88,7 +88,7 @@
         </li>
       </el-tooltip>
      </ul> -->
-    </div>
+  </div>
 </template>
 <script setup lang="ts">
 // import {onMounted} from 'vue';

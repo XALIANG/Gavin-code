@@ -1,70 +1,70 @@
 <template>
-    <div class="tags-container">
-        <scroll-pane
-            ref="scrollPaneRef"
-            @scroll="handleScroll"
+  <div class="tags-container">
+    <scroll-pane
+      ref="scrollPaneRef"
+      @scroll="handleScroll"
+    >
+      <router-link
+        v-for="tag in visitedViews"
+        :key="tag.path"
+        :class="'tags-item ' + (isActive(tag) ? 'active' : '')"
+        :data-path="tag.path"
+        :to="{ path: tag.path, query: tag.query }"
+        @click.middle="!isAffix(tag) ? closeSelectedTag(tag) : ''"
+        @contextmenu.prevent="openTagMenu(tag, $event)"
+      >
+        {{ translateRouteTitleI18n(tag.meta?.title) }}
+        <span
+          v-if="!isAffix(tag)"
+          class="tags-item-close"
+          @click.prevent.stop="closeSelectedTag(tag)"
         >
-            <router-link
-                v-for="tag in visitedViews"
-                :key="tag.path"
-                :class="'tags-item ' + (isActive(tag) ? 'active' : '')"
-                :data-path="tag.path"
-                :to="{ path: tag.path, query: tag.query }"
-                @click.middle="!isAffix(tag) ? closeSelectedTag(tag) : ''"
-                @contextmenu.prevent="openTagMenu(tag, $event)"
-            >
-                {{ translateRouteTitleI18n(tag.meta?.title) }}
-                <span
-                    v-if="!isAffix(tag)"
-                    class="tags-item-close"
-                    @click.prevent.stop="closeSelectedTag(tag)"
-                >
-                    <i-ep-close class="text-[10px]"/>
-                </span>
-            </router-link>
-        </scroll-pane>
+          <i-ep-close class="text-[10px]" />
+        </span>
+      </router-link>
+    </scroll-pane>
 
-        <!-- tag标签操作菜单 -->
-        <ul
-            v-show="tagMenuVisible"
-            class="tag-menu"
-            :style="{ left: left + 'px', top: top + 'px' }"
-        >
-            <li @click="refreshSelectedTag(selectedTag)">
-                <svg-icon icon-class="refresh"/>
-                刷新
-            </li>
-            <li
-                v-if="!isAffix(selectedTag)"
-                @click="closeSelectedTag(selectedTag)"
-            >
-                <svg-icon icon-class="close"/>
-                关闭
-            </li>
-            <li @click="closeOtherTags">
-                <svg-icon icon-class="close_other"/>
-                关闭其它
-            </li>
-            <li
-                v-if="!isFirstView()"
-                @click="closeLeftTags"
-            >
-                <svg-icon icon-class="close_left"/>
-                关闭左侧
-            </li>
-            <li
-                v-if="!isLastView()"
-                @click="closeRightTags"
-            >
-                <svg-icon icon-class="close_right"/>
-                关闭右侧
-            </li>
-            <li @click="closeAllTags(selectedTag)">
-                <svg-icon icon-class="close_all"/>
-                关闭所有
-            </li>
-        </ul>
-    </div>
+    <!-- tag标签操作菜单 -->
+    <ul
+      v-show="tagMenuVisible"
+      class="tag-menu"
+      :style="{ left: left + 'px', top: top + 'px' }"
+    >
+      <li @click="refreshSelectedTag(selectedTag)">
+        <svg-icon icon-class="refresh" />
+        刷新
+      </li>
+      <li
+        v-if="!isAffix(selectedTag)"
+        @click="closeSelectedTag(selectedTag)"
+      >
+        <svg-icon icon-class="close" />
+        关闭
+      </li>
+      <li @click="closeOtherTags">
+        <svg-icon icon-class="close_other" />
+        关闭其它
+      </li>
+      <li
+        v-if="!isFirstView()"
+        @click="closeLeftTags"
+      >
+        <svg-icon icon-class="close_left" />
+        关闭左侧
+      </li>
+      <li
+        v-if="!isLastView()"
+        @click="closeRightTags"
+      >
+        <svg-icon icon-class="close_right" />
+        关闭右侧
+      </li>
+      <li @click="closeAllTags(selectedTag)">
+        <svg-icon icon-class="close_all" />
+        关闭所有
+      </li>
+    </ul>
+  </div>
 </template>
 <script setup lang="ts">import {
     getCurrentInstance,

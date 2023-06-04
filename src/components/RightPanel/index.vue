@@ -1,6 +1,9 @@
 <template>
-  <div ref="rightPanel" :class="{ show: show }">
-    <div class="right-panel-overlay" ></div>
+  <div
+    ref="rightPanel"
+    :class="{ show: show }"
+  >
+    <div class="right-panel-overlay" />
     <div class="right-panel-container">
       <div
         class="right-panel-btn"
@@ -9,11 +12,11 @@
         }"
         @click="show = !show"
       >
-       <i-ep-close v-show="show" />
+        <i-ep-close v-show="show" />
         <i-ep-setting v-show="!show" />
       </div>
       <div>
-        <slot></slot>
+        <slot />
       </div>
     </div>
   </div>
