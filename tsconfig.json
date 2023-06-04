@@ -12,7 +12,13 @@
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,
-    "types": ["element-plus/global"]
+    "types": ["element-plus/global"],
+    "baseUrl": "src",
+        "allowJs": true,
+        "paths": {
+            "@/*": ["./*"],
+            "~/*": ["./*"]
+        },
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/utils/index.js", "src/views/noteData/config.js"],
 }

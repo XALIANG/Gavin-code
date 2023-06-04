@@ -6,7 +6,7 @@
         </main-body>
         <login/> -->
         <div>
-            <constTable
+            <const-table
                 :data="tableData"
                 :column="currentColumns"
             >
@@ -20,7 +20,7 @@
                     <el-button type="warning">Warning</el-button>
                     <el-button type="danger">Danger</el-button>
                 </template>
-            </constTable>
+            </const-table>
         </div>
         <!-- <pagination v-model="page"/> -->
     </div>

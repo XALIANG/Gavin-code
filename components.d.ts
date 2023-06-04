@@ -23,6 +23,7 @@ declare module '@vue/runtime-core' {
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     Pagination: typeof import('./src/components/pagination.vue')['default']
+    Query: typeof import('./src/components/query/index.vue')['default']
     Table: typeof import('./src/components/table.vue')['default']
     Template: typeof import('./src/components/template/index.vue')['default']
   }

@@ -5,17 +5,22 @@ import Components from 'unplugin-vue-components/vite';
 import path from 'path';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
+const pathSrc = path.resolve(__dirname, './src');
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': pathSrc,
     }
   },
+  css:{},
+  server:{},
   plugins: [
     vue(),
     AutoImport({
       resolvers: [ElementPlusResolver()],
+      vueTemplate: true, // 是否在 vue 模板中自动导入
+      dts: path.resolve(path.resolve(__dirname, './'), "auto-imports.d.ts"), 
     }),
     Components({
       resolvers: [ElementPlusResolver()],
