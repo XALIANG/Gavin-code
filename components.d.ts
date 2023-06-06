@@ -47,7 +47,6 @@ declare module '@vue/runtime-core' {
     ElUpload: typeof import('element-plus/es')['ElUpload']
     GithubCorner: typeof import('./src/components/GithubCorner/index.vue')['default']
     Hamburger: typeof import('./src/components/Hamburger/index.vue')['default']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     IconSelect: typeof import('./src/components/IconSelect/index.vue')['default']
     LangSelect: typeof import('./src/components/LangSelect/index.vue')['default']
     MultiUpload: typeof import('./src/components/Upload/MultiUpload.vue')['default']

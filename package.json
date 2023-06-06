@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^4.11.2",
+    "@wangeditor/editor": "^5.1.23",
     "axios": "^1.4.0",
     "element-plus": "^2.3.5",
     "path-browserify": "^1.0.1",
