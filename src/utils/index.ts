@@ -5,7 +5,7 @@
  * @returns {boolean}
  */
 export function hasClass(ele: HTMLElement, cls: string) {
-  return !!ele.className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"));
+    return !!(new RegExp('(\\s|^)' + cls + '(\\s|$)').exec(ele.className));
 }
 
 /**
@@ -14,7 +14,9 @@ export function hasClass(ele: HTMLElement, cls: string) {
  * @param {string} cls
  */
 export function addClass(ele: HTMLElement, cls: string) {
-  if (!hasClass(ele, cls)) ele.className += " " + cls;
+    if (!hasClass(ele, cls)) {
+        ele.className += ' ' + cls;
+    }
 }
 
 /**
@@ -23,10 +25,10 @@ export function addClass(ele: HTMLElement, cls: string) {
  * @param {string} cls
  */
 export function removeClass(ele: HTMLElement, cls: string) {
-  if (hasClass(ele, cls)) {
-    const reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
-    ele.className = ele.className.replace(reg, " ");
-  }
+    if (hasClass(ele, cls)) {
+        const reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+        ele.className = ele.className.replace(reg, ' ');
+    }
 }
 
 /**
@@ -34,6 +36,6 @@ export function removeClass(ele: HTMLElement, cls: string) {
  * @returns {Boolean}
  */
 export function isExternal(path: string) {
-  const isExternal = /^(https?:|http?:|mailto:|tel:)/.test(path);
-  return isExternal;
+    const isExternal = /^(https?:|http?:|mailto:|tel:)/.test(path);
+    return isExternal;
 }

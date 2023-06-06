@@ -1,6 +1,6 @@
 import request from '@/utils/request';
-import { AxiosPromise } from 'axios';
-import { DeptForm, DeptQuery, DeptVO } from './types';
+import {AxiosPromise} from 'axios';
+import {DeptForm, DeptQuery, DeptVO} from './types';
 
 /**
  * 部门树形表格
@@ -8,21 +8,21 @@ import { DeptForm, DeptQuery, DeptVO } from './types';
  * @param queryParams
  */
 export function listDepts(queryParams?: DeptQuery): AxiosPromise<DeptVO[]> {
-  return request({
-    url: '/api/v1/dept',
-    method: 'get',
-    params: queryParams
-  });
+    return request({
+        url: '/api/v1/dept',
+        method: 'get',
+        params: queryParams,
+    });
 }
 
 /**
  * 部门下拉列表
  */
 export function listDeptOptions(): AxiosPromise<[]> {
-  return request({
-    url: '/api/v1/dept/options',
-    method: 'get'
-  });
+    return request({
+        url: '/api/v1/dept/options',
+        method: 'get',
+    });
 }
 
 /**
@@ -31,10 +31,10 @@ export function listDeptOptions(): AxiosPromise<[]> {
  * @param id
  */
 export function getDeptForm(id: number): AxiosPromise<DeptForm> {
-  return request({
-    url: '/api/v1/dept/' + id + '/form',
-    method: 'get'
-  });
+    return request({
+        url: '/api/v1/dept/' + id + '/form',
+        method: 'get',
+    });
 }
 
 /**
@@ -43,11 +43,11 @@ export function getDeptForm(id: number): AxiosPromise<DeptForm> {
  * @param data
  */
 export function addDept(data: DeptForm) {
-  return request({
-    url: '/api/v1/dept',
-    method: 'post',
-    data: data
-  });
+    return request({
+        url: '/api/v1/dept',
+        method: 'post',
+        data: data,
+    });
 }
 
 /**
@@ -57,11 +57,11 @@ export function addDept(data: DeptForm) {
  * @param data
  */
 export function updateDept(id: number, data: DeptForm) {
-  return request({
-    url: '/api/v1/dept/' + id,
-    method: 'put',
-    data: data
-  });
+    return request({
+        url: '/api/v1/dept/' + id,
+        method: 'put',
+        data: data,
+    });
 }
 
 /**
@@ -70,8 +70,8 @@ export function updateDept(id: number, data: DeptForm) {
  * @param ids
  */
 export function deleteDept(ids: string) {
-  return request({
-    url: '/api/v1/dept/' + ids,
-    method: 'delete'
-  });
+    return request({
+        url: '/api/v1/dept/' + ids,
+        method: 'delete',
+    });
 }
