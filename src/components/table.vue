@@ -5,7 +5,24 @@
             v-if="refresh"
             class="placeholder"
             :style="`height: ${height}px`"
-        ></div>
+        >
+            <el-table
+                ref="elTable"
+                :data="data"
+                :height="height"
+                v-bind="$attrs"
+            >
+                <const-column :columns="column">
+                    <template
+                        v-for="name in slotName"
+                        :key="name"
+                        #[name]="scope"
+                    >
+                        <slot :name="name" v-bind="scope"></slot>
+                    </template>
+                </const-column>
+            </el-table>
+        </div>
         <el-table
             v-else
             ref="elTable"
@@ -52,7 +69,7 @@ export default defineComponent({
     components: {constColumn},
     setup(props) {
         const elTable = ref<InstanceType<typeof ElTable>>();
-        const refresh = ref(false);
+        const refresh = ref(true);
         let height = ref();
         const slotName = computed(() => {
             const names = new Set<string>();

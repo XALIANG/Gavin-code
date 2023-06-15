@@ -7,7 +7,6 @@
         <login/> -->
         <div>
             <const-table
-                :auto-height="false"
                 :data="tableData"
                 :column="currentColumns"
             >
