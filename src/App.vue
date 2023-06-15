@@ -7,6 +7,7 @@
         <login/> -->
         <div>
             <const-table
+                :auto-height="false"
                 :data="tableData"
                 :column="currentColumns"
             >
@@ -51,6 +52,36 @@ const currentColumns = [
     {slot: 'btn', label: '操作', minWidth: '280'},
 ];
 const tableData = [
+    {
+        date: '2016-05-03',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles',
+    },
+    {
+        date: '2016-05-03',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles',
+    },
+    {
+        date: '2016-05-03',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles',
+    },
+    {
+        date: '2016-05-03',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles',
+    },
+    {
+        date: '2016-05-03',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles',
+    },
+    {
+        date: '2016-05-03',
+        name: 'Tom',
+        address: 'No. 189, Grove St, Los Angeles',
+    },
     {
         date: '2016-05-03',
         name: 'Tom',

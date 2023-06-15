@@ -29,12 +29,14 @@ export interface Pagination {
 }
 
 export interface Option {
-    label:string,
-    value:string | number
+    label: string;
+    value: string | number;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface FormItemRule{}
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface SyncPropsType{}
 
 export interface QueryItem<KeyType = string> {

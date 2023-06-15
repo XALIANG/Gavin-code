@@ -8,6 +8,7 @@
         ></div>
         <el-table
             v-else
+            ref="elTable"
             :data="data"
             :height="height"
             v-bind="$attrs"
@@ -50,9 +51,7 @@ export default defineComponent({
     },
     components: {constColumn},
     setup(props) {
-
         const elTable = ref<InstanceType<typeof ElTable>>();
-        console.info('---', elTable);
         const refresh = ref(false);
         let height = ref();
         const slotName = computed(() => {

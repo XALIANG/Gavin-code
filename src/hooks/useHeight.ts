@@ -11,9 +11,12 @@ export function useTableHeight(tableRef: Ref, offset: number = 0): any {
     const caculate = debounce(() => {
         const table = tableRef.value?.$el;
         const rect = table?.getBoundingClientRect();
+        console.info('rect', rect);
+        console.info(table);
         if (rect) {
             const {top} = rect;
             let value = window.innerHeight - top - offset;
+            console.info('value', value);
             if (value < minHeight) {
                 value = minHeight;
             }

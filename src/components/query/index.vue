@@ -8,6 +8,7 @@ import {
     ElFormItem,
 } from 'element-plus';
 import {defineComponent, h, reactive} from 'vue';
+// eslint-disable-next-line no-duplicate-imports
 import type {PropType, VNode} from 'vue';
 import type {Option, QueryItem} from '@/types/app';
 
